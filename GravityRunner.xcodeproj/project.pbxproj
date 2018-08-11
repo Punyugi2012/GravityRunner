@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B804BED7211EF18B0035E45A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B804BED6211EF18B0035E45A /* Player.swift */; };
+		B804BED9211EF3070035E45A /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B804BED8211EF3070035E45A /* ColliderType.swift */; };
+		B804BEDB211EF4770035E45A /* Ground+Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B804BEDA211EF4770035E45A /* Ground+Floor.swift */; };
 		B8447384211ECB81007B9AB0 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8447383211ECB81007B9AB0 /* MainMenu.sks */; };
 		B8447386211ECB90007B9AB0 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8447385211ECB90007B9AB0 /* MainMenu.swift */; };
 		B8447388211ECB9C007B9AB0 /* GamePlay.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8447387211ECB9C007B9AB0 /* GamePlay.sks */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B804BED6211EF18B0035E45A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		B804BED8211EF3070035E45A /* ColliderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColliderType.swift; sourceTree = "<group>"; };
+		B804BEDA211EF4770035E45A /* Ground+Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ground+Floor.swift"; sourceTree = "<group>"; };
 		B8447383211ECB81007B9AB0 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		B8447385211ECB90007B9AB0 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		B8447387211ECB9C007B9AB0 /* GamePlay.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GamePlay.sks; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				B8447390211EE64A007B9AB0 /* Background.swift */,
+				B804BED6211EF18B0035E45A /* Player.swift */,
+				B804BED8211EF3070035E45A /* ColliderType.swift */,
+				B804BEDA211EF4770035E45A /* Ground+Floor.swift */,
 			);
 			path = HelpingClasses;
 			sourceTree = "<group>";
@@ -201,8 +210,11 @@
 			files = (
 				B8A147BD211D939300E8939A /* GameViewController.swift in Sources */,
 				B844738E211ECBC4007B9AB0 /* FinishGame.swift in Sources */,
+				B804BEDB211EF4770035E45A /* Ground+Floor.swift in Sources */,
 				B844738A211ECBA6007B9AB0 /* GamePlay.swift in Sources */,
 				B8447386211ECB90007B9AB0 /* MainMenu.swift in Sources */,
+				B804BED7211EF18B0035E45A /* Player.swift in Sources */,
+				B804BED9211EF3070035E45A /* ColliderType.swift in Sources */,
 				B8A147B5211D939300E8939A /* AppDelegate.swift in Sources */,
 				B8447391211EE64A007B9AB0 /* Background.swift in Sources */,
 			);
