@@ -14,8 +14,10 @@ class GamePlay: SKScene {
     var background1: Background?
     var background2: Background?
     var background3: Background?
+    var outOfBoundTimer: Timer?
     override func didMove(to view: SKView) {
         initGame()
+        physicsWorld.contactDelegate = self
     }
     private func initGame() {
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode
@@ -32,11 +34,20 @@ class GamePlay: SKScene {
         
         player = childNode(withName: "Player") as? Player
         player?.initPlayer()
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(spawnItem), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(spawnItem), userInfo: nil, repeats: true)
+        outOfBoundTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(clearOutOfBound), userInfo: self, repeats: true)
         
     }
+    @objc private func clearOutOfBound() {
+        for child in children {
+            if (child.name == "Ring" || child.name == "Fire") && (child.position.x < mainCamera!.position.x - 500) {
+                child.removeFromParent()
+                print("OutOfBound Removed")
+            }
+        }
+    }
     @objc private func spawnItem() {
-        addChild(ItemManger.getItem(minY: self.frame.minY, maxY: self.frame.maxX, positionXCamera: (mainCamera?.position.x)!))
+        addChild(ItemManger.getItem(minY: self.frame.minY, maxY: self.frame.maxY, positionXCamera: (mainCamera?.position.x)!))
     }
     override func update(_ currentTime: TimeInterval) {
         mainCamera?.position.x += 10
@@ -48,5 +59,20 @@ class GamePlay: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         physicsWorld.gravity.dy *= -1
         player?.reversePlayer()
+    }
+}
+
+extension GamePlay: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("Have a contact")
+        if contact.bodyA.node?.name == "Player" && contact.bodyB.node?.name == "Ring" {
+            contact.bodyB.node?.removeFromParent()
+        }
+        else if contact.bodyA.node?.name == "Player" && contact.bodyB.node?.name == "Fire" {
+            if let gamePlayScene = GamePlay(fileNamed: "GamePlay") {
+                view!.presentScene(gamePlayScene)
+            }
+        }
+        
     }
 }
