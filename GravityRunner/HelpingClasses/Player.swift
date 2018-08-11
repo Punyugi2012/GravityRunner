@@ -14,8 +14,9 @@ class Player: SKSpriteNode {
         for i in 1...8 {
             textures.append(SKTexture(imageNamed: "player\(i)"))
         }
+        self.size = CGSize(width: 90, height: 90)
         self.run(SKAction.repeatForever(SKAction.animate(with: textures, timePerFrame: 0.1, resize: true, restore: false)))
-        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width, height: self.size.height))
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 30, height: self.size.height - 10))
         self.physicsBody?.categoryBitMask = ColliderType.PLAYER
         self.physicsBody?.contactTestBitMask = ColliderType.FIRE_AND_RING
         self.physicsBody?.restitution = 0.0

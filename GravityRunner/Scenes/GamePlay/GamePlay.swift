@@ -32,7 +32,11 @@ class GamePlay: SKScene {
         
         player = childNode(withName: "Player") as? Player
         player?.initPlayer()
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(spawnItem), userInfo: nil, repeats: true)
         
+    }
+    @objc private func spawnItem() {
+        addChild(ItemManger.getItem(minY: self.frame.minY, maxY: self.frame.maxX, positionXCamera: (mainCamera?.position.x)!))
     }
     override func update(_ currentTime: TimeInterval) {
         mainCamera?.position.x += 10
