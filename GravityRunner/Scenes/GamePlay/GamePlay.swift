@@ -50,7 +50,7 @@ class GamePlay: SKScene {
         addChild(ItemManger.getItem(minY: self.frame.minY, maxY: self.frame.maxY, positionXCamera: (mainCamera?.position.x)!))
     }
     override func update(_ currentTime: TimeInterval) {
-        mainCamera?.position.x += 10
+        mainCamera?.position.x += 5
         background1?.move(camera: mainCamera)
         background2?.move(camera: mainCamera)
         background3?.move(camera: mainCamera)

@@ -11,8 +11,9 @@ import SpriteKit
 class ItemManger {
     static func getItem(minY: CGFloat, maxY: CGFloat, positionXCamera: CGFloat) -> SKSpriteNode {
         let randomForTypeItem = randomBetweenNumbers(first: 1, second: 20)
+        print(randomForTypeItem)
         var item: SKSpriteNode
-        if randomForTypeItem >= 16 {
+        if randomForTypeItem <= 10 {
             item = SKSpriteNode(imageNamed: "ring")
             item.name = "Ring"
             item.size = CGSize(width: 50, height: 50)

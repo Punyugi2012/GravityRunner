@@ -29,6 +29,6 @@ class Player: SKSpriteNode {
     }
     
     func move() {
-        self.position.x += 10
+        self.position.x += 5
     }
 }
