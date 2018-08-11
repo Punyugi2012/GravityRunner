@@ -84,6 +84,13 @@
 			path = FinishGame;
 			sourceTree = "<group>";
 		};
+		B844738F211ECC57007B9AB0 /* HelpingClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HelpingClasses;
+			sourceTree = "<group>";
+		};
 		B8A147A8211D939300E8939A = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +110,7 @@
 		B8A147B3211D939300E8939A /* GravityRunner */ = {
 			isa = PBXGroup;
 			children = (
+				B844738F211ECC57007B9AB0 /* HelpingClasses */,
 				B844737F211ECB33007B9AB0 /* Scenes */,
 				B8A147B4211D939300E8939A /* AppDelegate.swift */,
 				B8A147BC211D939300E8939A /* GameViewController.swift */,
