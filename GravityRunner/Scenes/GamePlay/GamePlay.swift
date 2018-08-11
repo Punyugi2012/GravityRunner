@@ -9,5 +9,14 @@
 import SpriteKit
 
 class GamePlay: SKScene {
-
+    var mainCamera: SKCameraNode?
+    override func didMove(to view: SKView) {
+        initGame()
+    }
+    private func initGame() {
+        mainCamera = childNode(withName: "MainCamera") as? SKCameraNode
+    }
+    override func update(_ currentTime: TimeInterval) {
+        mainCamera?.position.x += 10
+    }
 }

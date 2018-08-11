@@ -14,6 +14,11 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let skView = view as? SKView {
+            if let gamePlayScene = GamePlay(fileNamed: "GamePlay") {
+                skView.presentScene(gamePlayScene)
+            }
+        }
     }
 
     override var shouldAutorotate: Bool {
