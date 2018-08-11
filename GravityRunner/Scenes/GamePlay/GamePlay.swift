@@ -39,5 +39,10 @@ class GamePlay: SKScene {
         background1?.move(camera: mainCamera)
         background2?.move(camera: mainCamera)
         background3?.move(camera: mainCamera)
+        player?.move()
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        physicsWorld.gravity.dy *= -1
+        player?.reversePlayer()
     }
 }

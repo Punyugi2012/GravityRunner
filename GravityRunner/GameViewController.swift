@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
         if let skView = view as? SKView {
             if let gamePlayScene = GamePlay(fileNamed: "GamePlay") {
                 skView.presentScene(gamePlayScene)
+                skView.showsPhysics = true
             }
         }
     }

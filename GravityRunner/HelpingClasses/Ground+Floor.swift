@@ -14,5 +14,6 @@ class Ground_Floor: SKSpriteNode {
         self.physicsBody?.categoryBitMask = ColliderType.GROUND_AND_FLOOR
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.restitution = 0.0
     }
 }
