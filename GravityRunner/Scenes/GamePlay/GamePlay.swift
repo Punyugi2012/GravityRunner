@@ -36,18 +36,21 @@ class GamePlay: SKScene {
         player?.initPlayer()
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(spawnItem), userInfo: nil, repeats: true)
         outOfBoundTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(clearOutOfBound), userInfo: self, repeats: true)
-        
     }
     @objc private func clearOutOfBound() {
-        for child in children {
-            if (child.name == "Ring" || child.name == "Fire") && (child.position.x < mainCamera!.position.x - 500) {
-                child.removeFromParent()
-                print("OutOfBound Removed")
+        if let mainCamera = mainCamera {
+            for child in children {
+                if (child.name == "Ring" || child.name == "Fire") && child.position.x < mainCamera.frame.minX - 500 {
+                    child.removeFromParent()
+                    print("OutOfBound Removed")
+                }
             }
         }
     }
     @objc private func spawnItem() {
-        addChild(ItemManger.getItem(minY: self.frame.minY, maxY: self.frame.maxY, positionXCamera: (mainCamera?.position.x)!))
+        if let mainCamera = mainCamera {
+            addChild(ItemManger.getItem(minY: self.frame.minY, maxY: self.frame.maxY, positionXCamera:  mainCamera.position.x))
+        }
     }
     override func update(_ currentTime: TimeInterval) {
         mainCamera?.position.x += 5
@@ -73,6 +76,5 @@ extension GamePlay: SKPhysicsContactDelegate {
                 view!.presentScene(gamePlayScene)
             }
         }
-        
     }
 }

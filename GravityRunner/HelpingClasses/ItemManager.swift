@@ -12,17 +12,16 @@ class ItemManger {
     static func getItem(minY: CGFloat, maxY: CGFloat, positionXCamera: CGFloat) -> SKSpriteNode {
         let randomForTypeItem = randomBetweenNumbers(first: 1, second: 20)
         print(randomForTypeItem)
-        var item: SKSpriteNode
+        let item = SKSpriteNode()
+        item.size = CGSize(width: 50, height: 50)
         if randomForTypeItem <= 10 {
-            item = SKSpriteNode(imageNamed: "ring")
+            item.texture = SKTexture(imageNamed: "ring")
             item.name = "Ring"
-            item.size = CGSize(width: 50, height: 50)
             item.physicsBody = SKPhysicsBody(circleOfRadius: item.size.height / 2)
         }
         else {
-            item = SKSpriteNode(imageNamed: "fire1")
+            item.texture = SKTexture(imageNamed: "fire1")
             item.name = "Fire"
-            item.size = CGSize(width: 50, height: 50)
             item.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.size.width - 30, height: item.size.height - 30))
             var textures = [SKTexture]()
             for i in 1...12 {
